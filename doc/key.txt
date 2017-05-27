@@ -1,1 +1,1 @@
-jquery �汾 jQuery v1.11.1
+jquery 版本jQuery v1.11.1

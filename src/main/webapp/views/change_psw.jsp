@@ -6,14 +6,14 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>修改密码</title>
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/page.css">
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/base.css">
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/page.css">
 	<!--[if lte IE 8]>
 	<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
 	<![endif]-->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/modernizr.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/main.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/modernizr.js"></script>
 	<!--[if IE]>
 	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 	<![endif]-->
