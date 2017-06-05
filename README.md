@@ -26,7 +26,29 @@ stu_name
 gender
 birthday
 email
+tel_num   电话号码
 class_id
 university
+memo
+
+学生成绩表   stu_score
+id
+stu_no
+course
+score
+memo
+
+班级信息
+
+dic 字典表
+1、ID
+2、字典类型     dic_type
+3、Name  data_name
+4、Code  data_code
+5、备注           memo
+6、状态           state
+7、修改时间  update_time
+8、修改人      update_person
+
 
 

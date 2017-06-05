@@ -19,6 +19,11 @@
 </head>
 
 <body>
+<!-- 
+
+可以通过此标签引入外部的jsp文件
+ -->
+<%@ include file="auth.jsp" %>
 <div class="superWrap clearfix" style="height: 781px;">
 	<!--side S-->
 	<div class="super-side-menu">

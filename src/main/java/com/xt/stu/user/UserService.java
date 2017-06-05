@@ -32,6 +32,8 @@ public class UserService {
 		
 		try {
 			ps = conn.prepareStatement("select count(id) from user_info where user_name = ? and passwd = password(?)");
+			ps.setString(1, userName);
+			ps.setString(2, password);
 			rs = ps.executeQuery();
 			rs.next();
 			return rs.getInt(1) > 0;
@@ -46,5 +48,27 @@ public class UserService {
 		return false;
 	}
 	
+	
+	public UserInfo getUserInfoByUserName(String userName){
+		UserInfo ui = null;
+		Connection conn = DBUtil.getDBConn();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement("select * from user_info where user_name = ?");
+			ps.setString(1, userName);
+			rs = ps.executeQuery();
+			if(rs.next()){
+				ui = new UserInfo();
+				ui.setUserName(userName);
+				ui.setUserType(rs.getInt("user_type"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtil.closeConn(conn);
+		}
+		return ui;
+	}
 	
 }

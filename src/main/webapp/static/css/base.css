@@ -46,7 +46,9 @@ button::-moz-focus-inner,input::-moz-focus-inner {
 input {
 	line-height: normal;
 }
-
+select {
+	line-height: normal;
+}
 .form-control {
 	display: block;
 	width: 100%;
@@ -393,7 +395,7 @@ select,
 	text-align: left;
 	cursor: inherit;
 	width: 162px;
-	height: 22px;
+	height: 32px;
 	padding: 5px 0;
 	text-indent: 15px;
 }

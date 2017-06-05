@@ -1,1 +1,45 @@
 jquery 版本jQuery v1.11.1
+
+
+HTTP状态码：
+
+SC_CONTINUE， 状态码是100，表示客户端无法连接。
+SC_SWITHING_PROTOCOLS,状态码是101，表示服务器正向报头中注明的协议切换。
+SC_OK，状态码是200.表示请求被成功处理。
+SC_CREATED，状态码是201，表示请求被成功处理，并在服务器方创建了一个新的资源。
+SC_ACCEPTED，状态码是202，表示请求正在被处理，但尚未完成。
+SC_NON_AUTHORITATIVE_INFORMATION，状态码是203，表示客户端所表达的mate信息并非来自服务器。
+SC_NO_CONTENT，状态码是204，表示请求被成功处理，但没有新的信息返回。
+SC_RESET_CONTENT,状态码是205，表示导致请求被发送的文档视图应该重置。
+SC_PARTIAL_CONTENT,状态码是206，表示服务器已经完成对资源的GET请求。
+SC_MULTI_CHOICES，状态码是300，表示对应于一系列表述的被请求资源都有明确的位置。
+SC_MOVED_PERMANENTLY，状态码是301，表示请求所申请的资源已经被移到一个新的地方，并且将来的参考点在请求中应当使用一个新的URL.
+SC_MOVED_TEMPORARILY,状态码是302，表示请求所申请的资源已经被移到一个新的地方，并且将来的参考点在请求中仍使用原来的URL.
+SC_SEE_OTHER,状态码是303，表示请求的响应可以在一个不同的URL中找到。
+SC_NOT_MODIFIED，状态码是304，表示一个有条件的GET操作发现资源可以利用，且没有被改变。
+SC_USE_PROXY，状态码是305，表示被请求的资源必须通过特定位置的代理来访问。
+SC_TEMPORARY_REDIRECT，状态码是307, indicating that the requested resource resides temporarily under a different URI.
+SC_BAD_REQUEST，状态码是400，表示客户发出的请求句法不正确。
+SC_UNAUTHORIZED,状态码是401，表示请求HTTP认证。
+SC_PAYMENT_REQUIRED，状态码是402，表示为以后的使用保留。
+SC_FORBIDDEN，状态码是403，表示服务器明白客户的请求，但拒绝响应。
+SC_NOT_FAND，状态码是404，表示所请求的资源不可用。
+SC_METHOD_NOT_ALLOWED,状态码是405，表示在请求行中标示的方法不允许对请求URL所标明的资源使用。
+SC_NOT_ACCEPTTABLE,状态码是406，表示被请求的资源只能响应实体，而且此符合请求所发送的可接受头部域的实体的确包含不可接受的内容。
+SC_PHOXY_AUTHENTICATION_REQUIRED,状态码是407，表示客户端必须先向代理验证。
+SC_REQUEST_TIMEOUT,状态码是408,在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。 
+SC_CONFLICT,状态码是409,通常和PUT请求有关。由于请求和资源的当前状态相冲突，因此请求不能成功。 
+SC_GONE,状态码是410,所请求的文档已经不再可用，而且服务器不知道应该重定向到哪一个地址。它和404的不同在于，返回407表示文档永久地离开了指定的位置，而404表示由于未知的原因文档不可用。 
+SC_LENGTH_REQUIRED,状态码是411,服务器不能处理请求，除非客户发送一个Content-Length头。 
+SC_PRECONDITION_FAILED,状态码是412,请求头中指定的一些前提条件失败。 
+SC_REQUEST_ENTITY_TOO_LARGE,状态码是413,目标文档的大小超过服务器当前愿意处理的大小。如果服务器认为自己能够稍后再处理该请求，则应该提供一个Retry-After头。 
+SC_REQUEST_URI_TOO_LONG,状态码是414,URI太长。 
+SC_UNSUPPORTED_MEDIA_TYPE,状态码是415, indicating that the server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.
+SC_REQUESTED_RANGE_NOT_SATISFIABLE,状态码是416,服务器不能满足客户在请求中指定的Range头。
+SC_EXPECTATION_FAILED,状态码是417，indicating that the server could not meet the expectation given in the Expect request header.    
+SC_INTERNAL_SERVER_ERROR,状态码是500,服务器遇到了意料不到的情况，不能完成客户的请求。 
+SC_NOT_IMPLEMENTED,状态码是501,服务器不支持实现请求所需要的功能。例如，客户发出了一个服务器不支持的PUT请求。 
+SC_BAD_GATEWAY,状态码是502,服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。 
+SC_SERVICE_UNAVAILABLE,状态码是503,服务器由于维护或者负载过重未能应答。例如，Servlet可能在数据库连接池已满的情况下返回503。服务器返回503时可以提供一个Retry-After头。 
+SC_GATEWAY_TIMEOUT,状态码是504,由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答。 
+SC_HTTP_VERSION_NOT_SUPPORTED,状态码是505,服务器不支持请求中所指明的HTTP版本。

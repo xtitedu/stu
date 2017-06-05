@@ -21,7 +21,7 @@
 
 <body>
 <div class="super-header clearfix">
-	<h2>学生信息管理系统</h2>
+	<h2> </h2>
 	<div class="head-right">
 		<i class="ico-user"></i>当前用户：
 		<div class="userslideDown">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.xt.stu.user.UserService" %>
+<%@ page import="com.xt.stu.util.Constance" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,11 +13,20 @@
 <%
 	String userName = request.getParameter("userName");
 	String passwd = request.getParameter("passwd");
-	UserService us = new UserService();
-	if(us.checkLogin(userName, passwd)){
-		response.sendRedirect("sys_index.jsp");
+	String verCode = request.getParameter("verCode");
+	
+	if(verCode.equalsIgnoreCase(session.getAttribute(Constance.VER_CODE) + "")){
+		UserService us = new UserService();
+		if(us.checkLogin(userName, passwd)){
+			response.sendRedirect("sys_index.jsp");
+			session.setAttribute(Constance.USER_LOGIN_INFO, us.getUserInfoByUserName(userName));
+			
+		}else{
+			request.setAttribute("msg", "用户名或者密码错误,请重新输入！");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 	}else{
-		request.setAttribute("msg", "用户名或者密码为空！");
+		request.setAttribute("msg", "验证码错误,请重新输入！");
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 %>

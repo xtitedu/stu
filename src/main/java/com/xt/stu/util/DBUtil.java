@@ -18,7 +18,7 @@ public class DBUtil {
 
 	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/xt_stu";
+	private static final String DB_URL = "jdbc:mysql://192.168.9.234:3306/xt_stu";
 	
 	private static final String DB_USER = "root";
 	
@@ -80,6 +80,21 @@ public class DBUtil {
 			} catch (SQLException e) {
 				System.out.println("Statement 关闭出现异常 ： " + e);
 			}
+		}
+	}
+	
+	
+	public static void main(String[] args){
+		Connection conn = DBUtil.getDBConn();
+		Statement stat;
+		try {
+			stat = conn.createStatement();
+			ResultSet rs = stat.executeQuery("select now() from dual");
+			rs.next();
+			System.out.println("------------------------>" + rs.getString(1));
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }
