@@ -1,44 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class=" js csstransforms3d"><head>
-	<meta charset="utf-8">
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>公共侧边栏</title>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/base.css">
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/page.css">
-	<!--[if lte IE 8]>
-	<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
-	<![endif]-->
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-1.6.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/main.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/modernizr.js"></script>
-	<!--[if IE]>
-	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
-</head>
-<body>
-	<!--side S-->
-	<div class="super-side-menu">
-		<div class="logo"><a href="public_super_cg.html" target="_parent"><img src="images/logo.png"></a></div>
-		
-		<div class="side-menu">
-			<ul>
-				<li class="on"><a href="stu/list.jsp" target="Mainindex"><i class="ico-1"></i>学生信息管理</a></li>
-				<li><a href="xitong_set.html" target="Mainindex"><i class="ico-7"></i>系统设置</a></li>
-			</ul>
-		</div>
-	</div>
-	<!--side E-->
+<%
+String ctxPath = request.getContextPath();
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="<%=ctxPath %>/static/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="<%=ctxPath %>/static/js/jquery-1.6.min.js"></script>
 
 <script type="text/javascript">
-	$(function(){
-		$('.side-menu li').click(function(){
-			alert("test");
-			$(this).addClass('on').siblings().removeClass('on');
-		})
-	})
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
 </script>
 
-</body></html>
+
+</head>
+
+<body style="background:#f0f9fd;">
+	<div class="lefttop"><span></span></div>
+    
+    <dl class="leftmenu">
+        
+    <dd>
+    <div class="title">
+    <span><img src="<%=ctxPath %>/static/images/leftico01.png" /></span>管理信息
+    </div>
+    	<ul class="menuson">
+        <li><cite></cite><a href="index.html" target="rightFrame">用户管理</a><i></i></li>
+        <li class="active"><cite></cite><a href="server/status.jsp" target="rightFrame">服务器状态信息</a><i></i></li>
+        <li><cite></cite><a href="imgtable.html" target="rightFrame">图片数据表</a><i></i></li>
+        <li><cite></cite><a href="form.html" target="rightFrame">添加编辑</a><i></i></li>
+        <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
+        <li><cite></cite><a href="imglist1.html" target="rightFrame">自定义</a><i></i></li>
+        <li><cite></cite><a href="tools.html" target="rightFrame">常用工具</a><i></i></li>
+        <li><cite></cite><a href="filelist.html" target="rightFrame">信息管理</a><i></i></li>
+        <li><cite></cite><a href="tab.html" target="rightFrame">Tab页</a><i></i></li>
+        <li><cite></cite><a href="error.html" target="rightFrame">404页面</a><i></i></li>
+        </ul>    
+    </dd>
+        
+    
+    <dd>
+    <div class="title">
+    <span><img src="<%=ctxPath %>/static/images/leftico02.png" /></span>学生信息管理
+    </div>
+    <ul class="menuson">
+        <li><cite></cite><a href="stu/list.jsp" target="rightFrame">学生管理</a><i></i></li>
+        <li><cite></cite><a href="#">班级管理</a><i></i></li>
+        <li><cite></cite><a href="#">档案列表显示</a><i></i></li>
+        </ul>     
+    </dd> 
+    
+    </dl>
+    
+</body>
+</html>

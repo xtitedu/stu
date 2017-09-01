@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String ctxPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +10,8 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>用户登录</title>
-	<link rel="stylesheet" href="../static/css/base.css" />
-	<link rel="stylesheet" href="../static/css/login.css" />
+	<link rel="stylesheet" href="<%=ctxPath %>/static/css/base.css" />
+	<link rel="stylesheet" href="<%=ctxPath %>/static/css/login.css" />
 </head>
 <script type="text/javascript">
 	function checkLogin(){
@@ -52,7 +55,7 @@
  -->
 <div class="superlogin"></div>
 <div class="loginBox">
-	<div class="logo"><img src="../static/images/login_logo.png"/></div>
+	<div class="logo"><img src="<%=ctxPath %>/static/images/login_logo.png"/></div>
 	<div class="loginMain">
 		<div class="tabwrap">
 		<form action="checkLogin.jsp" id="loginForm" method="post">

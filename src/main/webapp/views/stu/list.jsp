@@ -3,91 +3,144 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.xt.stu.stuinfo.StuInfo" %>
 <%@ page import="com.xt.stu.stuinfo.StuService" %>
-<!DOCTYPE html>
-<html class=" js csstransforms3d"><head>
-	<meta charset="utf-8">
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>活动管理</title>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/base.css">
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/page.css">
-	<!--[if lte IE 8]>
-	<link href="css/ie8.css" rel="stylesheet" type="text/css"/>
-	<![endif]-->
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/main.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/modernizr.js"></script>
-	<!--[if IE]>
-	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
+<%
+	String ctxPath = request.getContextPath();
+	StuService stuInfo = new StuService();
+	List<StuInfo> stuList = stuInfo.getStuInfoByAttrs(null);
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<link href="<%=ctxPath %>/static/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=ctxPath %>/static/js/jquery-1.6.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+
+function test(){
+	alert("hello");
+}
+</script>
+
+
 </head>
 
-<body style="background: #f6f5fa;">
-<%
-StuService stuInfo = new StuService();
-List<StuInfo> stuList = stuInfo.getStuInfoByAttrs(null);
 
+<body>
 
-
-%>
-	<div class="super-content">
-		<div class="superCtab">
-			<div class="ctab-title clearfix"><h3>基本信息管理</h3></div>
-			<div class="ctab-Main">
-				<div class="ctab-Main-title">
-					<ul class="clearfix">
-						<li class="cur">信息列表</li>
-						<li><a href="add.jsp">添加学生</a></li>
-					</ul>
-				</div>
-				
-				<div class="ctab-Mian-cont">
-					<div class="Mian-cont-btn clearfix">
-						<div class="searchBar">
-							<input type="text" id="" value="" class="form-control srhTxt" placeholder="输入标题关键字搜索">
-							<input type="button" class="srhBtn" value="">
-						</div>
-					</div>
-					<div class="Mian-cont-wrap">
-						<div class="defaultTab-T">
-							<table border="0" cellspacing="0" cellpadding="0" class="defaultTable">
-								<tbody><tr><th class="t_1">学号</th><th class="t_2">姓名</th><th class="t_3">班级</th><th class="t_5">学校</th><th class="t_5">联系电话</th><th class="t_5">Email</th><th class="t_4">操作</th></tr>
-							</tbody></table>
-						</div>
-						<table border="0" cellspacing="0" cellpadding="0" class="defaultTable defaultTable2">
-							<tbody>
-							<%
-								for(StuInfo stu : stuList){
-							%>
-							<tr>
-								<td class="t_1"><%=stu.getStuNo() %></td>
-								<td class="t_2"><%=stu.getStuName() %></td>
-								<td class="t_3"><%=stu.getClassId() %></td>
-								<td class="t_5"><%=stu.getUniversity() %></td>
-								<td class="t_5"><%=stu.getTelNum() %></td>
-								<td class="t_5"><%=stu.getEmail() %></td>
-								<td class="t_4"><div class="btn"><a class="Top">置顶</a><a href="#" class="modify">修改</a><a href="#" class="delete">删除</a></div></td>
-							</tr>
-							<%
-								}
-							%>
-						</tbody></table>
-						<!--pages S-->
-						<div class="pageSelect">
-							<span>共 <b>188</b> 条 每页 <b>10 </b>条   1/18</span>
-							<div class="pageWrap">
-								<a class="pagePre"><i class="ico-pre">&nbsp;</i></a>
-								<a href="#" class="pagenumb cur">1</a>
-								<a href="#" class="pagenumb">2</a>
-								<a href="#" class="pagenumb">3</a>
-								<a href="#" class="pagenext"><i class="ico-next">&nbsp;</i></a>
-							</div>
-						</div>
-						<!--pages E-->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--main-->
-	</div>
-</body></html>
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">学生信息管理</a></li>
+    <li><a href="#">学生管理</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">
+    
+    <div class="tools">
+    
+    	<ul class="toolbar">
+        <li class="click"><span><img src="<%=ctxPath %>/static/images/t01.png" /></span>添加</li>
+        <li class="click"><span><img src="<%=ctxPath %>/static/images/t02.png" /></span>修改</li>
+        <li><span><img src="<%=ctxPath %>/static/images/t03.png" /></span>删除</li>
+        </ul>
+    
+    </div>
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th>学号<i class="sort"><img src="<%=ctxPath %>/static/images/px.gif" /></i></th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>学校</th>
+        <th>联系电话</th>
+        <th>Email</th>
+        <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+			for(StuInfo stu : stuList){
+		%>
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td><%=stu.getStuNo() %></td>
+        <td><%=stu.getStuName() %></td>
+        <td><%=stu.getClassId() %></td>
+        <td><%=stu.getUniversity() %></td>
+        <td><%=stu.getTelNum() %></td>
+        <td><%=stu.getEmail() %></td>
+        <td><a href="#" class="tablelink">查看</a><a href="#" class="tablelink"> 修改</a><a href="#" class="tablelink"> 删除</a></td>
+        </tr> 
+        <%
+			}
+		%>
+        </tbody>
+    </table>
+    
+   
+    <div class="pagin">
+    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <ul class="paginList">
+        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
+        <li class="paginItem"><a href="javascript:;">1</a></li>
+        <li class="paginItem current"><a href="javascript:;">2</a></li>
+        <li class="paginItem"><a href="javascript:;">3</a></li>
+        <li class="paginItem"><a href="javascript:;">4</a></li>
+        <li class="paginItem"><a href="javascript:;">5</a></li>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <li class="paginItem"><a href="javascript:;">10</a></li>
+        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        </ul>
+    </div>
+    
+    
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="<%=ctxPath %>/static/images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认对信息的修改 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" onclick="test();"/>&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    </div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+</html>

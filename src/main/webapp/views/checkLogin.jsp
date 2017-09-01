@@ -18,9 +18,8 @@
 	if(verCode.equalsIgnoreCase(session.getAttribute(Constance.VER_CODE) + "")){
 		UserService us = new UserService();
 		if(us.checkLogin(userName, passwd)){
-			response.sendRedirect("sys_index.jsp");
 			session.setAttribute(Constance.USER_LOGIN_INFO, us.getUserInfoByUserName(userName));
-			
+			response.sendRedirect("sys_index.jsp");
 		}else{
 			request.setAttribute("msg", "用户名或者密码错误,请重新输入！");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
