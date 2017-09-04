@@ -19,7 +19,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $(".click").click(function(){
-  $(".tip").fadeIn(200);
+  //$(".tip").fadeIn(200);
+  	window.location.href = "add.jsp";
   });
   
   $(".tiptop a").click(function(){
@@ -61,8 +62,7 @@ function test(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="<%=ctxPath %>/static/images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="<%=ctxPath %>/static/images/t02.png" /></span>修改</li>
+        <li class="click"><a><span><img src="<%=ctxPath %>/static/images/t01.png" /></span>添加</a></li>
         <li><span><img src="<%=ctxPath %>/static/images/t03.png" /></span>删除</li>
         </ul>
     
@@ -134,10 +134,6 @@ function test(){
         </div>
     
     </div>
-    
-    
-    
-    
     </div>
     
     <script type="text/javascript">

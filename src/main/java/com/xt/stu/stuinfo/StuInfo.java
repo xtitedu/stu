@@ -26,7 +26,7 @@ public class StuInfo {
 	
 	private String idNum;
 
-	private int gender;
+	private String gender;
 
 	private Date birthday;
 
@@ -102,7 +102,7 @@ public class StuInfo {
 	/**
 	 * @return the gender
 	 */
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
 
@@ -110,7 +110,7 @@ public class StuInfo {
 	 * @param gender
 	 *            the gender to set
 	 */
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

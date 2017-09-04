@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.xt.stu.util.DBUtil;
+import com.xt.stu.util.DateUtil;
 
 /**
  * @Description:
@@ -30,7 +31,7 @@ public class StuService {
 	 * @param stu
 	 */
 	public boolean insertStuInfo(StuInfo stu){
-		String sql = "INSERT INTO stu_info (stu_no, stu_name, idnum, gender, birthday, email, tel_num, class_id, university, memo) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO stu_info (stu_no, stu_name, idnum, gender, birthday, email, tel_num, class_id, university, memo, study_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		Connection conn = DBUtil.getDBConn();
 		PreparedStatement ps = null;
 		try {
@@ -38,13 +39,14 @@ public class StuService {
 			ps.setString(1, stu.getStuNo());
 			ps.setString(2, stu.getStuName());
 			ps.setString(3, stu.getIdNum());
-			ps.setInt(4, stu.getGender());
+			ps.setString(4, stu.getGender());
 			ps.setDate(5, null);
 			ps.setString(6, stu.getEmail());
 			ps.setString(7, stu.getTelNum());
 			ps.setInt(8, stu.getClassId());
 			ps.setString(9, stu.getUniversity());
 			ps.setString(10, stu.getMemo());
+			ps.setDate(11, DateUtil.sqlDateToUtilDate(stu.getBirthday()));
 			
 			if(ps.executeUpdate() > 0){
 				return true;
@@ -80,7 +82,7 @@ public class StuService {
 				stu.setStuNo(rs.getString(2));
 				stu.setStuName(rs.getString(3));
 				stu.setIdNum(rs.getString(4));
-				stu.setGender(rs.getInt(5));
+				stu.setGender(rs.getString(5));
 				stu.setBirthday(rs.getDate(6));
 				stu.setEmail(rs.getString(7));
 				stu.setTelNum(rs.getString(8));
