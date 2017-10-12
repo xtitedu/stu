@@ -15,13 +15,12 @@ public class H2DBServerStartListener implements ServletContextListener{
 		System.out.println("------------H2数据库正在启动------------------");
 		//, "-baseDir", ""
 		try {
-			server = Server.createTcpServer(new String[] { "-tcp", "-tcpAllowOthers", "-tcpPort", "8000", "-baseDir", "~/DATA/H2/"}).start();
+			server = Server.createTcpServer(new String[] { "-tcp", "-tcpAllowOthers", "-tcpPort", "8036", "-baseDir", "D://data//h2"}).start();
 			
 			System.out.println("*****************H2数据库启动成功***********************");
 		} catch (SQLException e) {
 			System.out.println("------------H2数据库启动失败：" + e);
-			e.printStackTrace();
-		}
+		} 
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {

@@ -2,6 +2,7 @@ package com.xt.stu.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,7 +19,18 @@ public class DBUtil {
 
 	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	
-	private static final String DB_URL = "jdbc:mysql://192.168.9.234:3306/xt_stu";
+	/**
+	 *  useUnicode 是否使用Unicode字符集，如果参数characterEncoding设置为gb2312或gbk，本参数值必须设置为true false 1.1g 
+		characterEncoding 当useUnicode设置为true时，指定字符编码。比如可设置为gb2312或gbk false 1.1g 
+		autoReconnect 当数据库连接异常中断时，是否自动重新连接？ false 1.1 
+		autoReconnectForPools 是否使用针对数据库连接池的重连策略 false 3.1.3 
+		failOverReadOnly 自动重连成功后，连接是否设置为只读？ true 3.0.12 
+		maxReconnects autoReconnect设置为true时，重试连接的次数 3 1.1 
+		initialTimeout autoReconnect设置为true时，两次重连之间的时间间隔，单位：秒 2 1.1 
+		connectTimeout 和数据库服务器建立socket连接时的超时，单位：毫秒。 0表示永不超时，适用于JDK 1.4及更高版本 0 3.0.1 
+		socketTimeout socket操作（读写）超时，单位：毫秒。 0表示永不超时 0 3.0.1 
+	 */
+	private static final String DB_URL = "jdbc:mysql://192.168.9.234:3306/xt_stu?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false";
 	
 	private static final String DB_USER = "root";
 	
@@ -86,10 +98,11 @@ public class DBUtil {
 	
 	public static void main(String[] args){
 		Connection conn = DBUtil.getDBConn();
-		Statement stat;
+		PreparedStatement ps;
 		try {
-			stat = conn.createStatement();
-			ResultSet rs = stat.executeQuery("select now() from dual");
+			ps = conn.prepareStatement("select 7 + ? from dual");
+			ps.setInt(1, 123);;
+			ResultSet rs = ps.executeQuery();
 			rs.next();
 			System.out.println("------------------------>" + rs.getString(1));
 			conn.close();

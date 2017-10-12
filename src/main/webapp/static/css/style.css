@@ -158,6 +158,8 @@ h2{font-weight:normal;}
 .pagin .paginList .paginItem.more a{color:#737373;}
 .pagepre{background:url(../images/pre.gif) no-repeat center center; width:31px; height:28px;}
 .pagenxt{background:url(../images/next.gif) no-repeat center center; width:31px; height:28px;}
+.pagepreDis{background:url(../images/pre_dis.gif) no-repeat center center; width:31px; height:28px;}
+.pagenxtDis{background:url(../images/next_dis.gif) no-repeat center center; width:31px; height:28px;}
 
 /*index*/
 .mainindex{padding:20px; overflow:hidden;}

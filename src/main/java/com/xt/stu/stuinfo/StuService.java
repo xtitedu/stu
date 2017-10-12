@@ -40,7 +40,7 @@ public class StuService {
 			ps.setString(2, stu.getStuName());
 			ps.setString(3, stu.getIdNum());
 			ps.setString(4, stu.getGender());
-			ps.setDate(5, null);
+			ps.setDate(5, DateUtil.sqlDateToUtilDate(stu.getBirthday()));
 			ps.setString(6, stu.getEmail());
 			ps.setString(7, stu.getTelNum());
 			ps.setInt(8, stu.getClassId());
@@ -61,13 +61,12 @@ public class StuService {
 	}
 	
 	/**
-	 * 查询取学生信息
+	 * 
 	 * @param stuAttr
 	 * @return
 	 */
-	public List<StuInfo> getStuInfoByAttrs(StuInfo stuAttr){
-		List<StuInfo> stuList = new LinkedList<StuInfo>();
-		String sql = "select * from stu_info";
+	public long getStuINfoByAttrsCount(StuInfo stuAttr){
+		String sql = "select count(*) from stu_info";
 		Connection conn = DBUtil.getDBConn();
 		Statement stat = null;
 		ResultSet rs = null;
@@ -75,6 +74,33 @@ public class StuService {
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
+			if(rs.next()){
+				return rs.getLong(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	/**
+	 * 查询取学生信息
+	 * @param stuAttr
+	 * @return
+	 */
+	public List<StuInfo> getStuInfoByAttrs(StuInfo stuAttr, long start, int pageNum){
+		List<StuInfo> stuList = new LinkedList<StuInfo>();
+		StringBuffer sql = new StringBuffer("select * from stu_info limit ");
+		sql.append(start).append(", ").append(pageNum);
+		Connection conn = DBUtil.getDBConn();
+		Statement stat = null;
+		ResultSet rs = null;
+		
+		try {
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql.toString());
 			StuInfo stu = null;
 			while(rs.next()){
 				stu = new StuInfo();
@@ -87,17 +113,14 @@ public class StuService {
 				stu.setEmail(rs.getString(7));
 				stu.setTelNum(rs.getString(8));
 				stu.setClassId(rs.getInt(9));
-				stu.setUniversity(rs.getString(10));
-				stu.setMemo(rs.getString(11));
-				
+				stu.setUniversity(rs.getString(11));
+				stu.setMemo(rs.getString(12));
 				stuList.add(stu);
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
 		
 		return stuList;
 	}

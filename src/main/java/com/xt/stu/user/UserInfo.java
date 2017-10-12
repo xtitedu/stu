@@ -14,6 +14,8 @@ import java.util.Date;
  */
 public class UserInfo {
 
+	private int id;
+	
 	private String userName;
 	
 	private String passwd;
@@ -26,6 +28,20 @@ public class UserInfo {
 	
 	private Date loginTime;
 	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	/**
 	 * 
 	 */

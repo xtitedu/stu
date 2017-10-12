@@ -41,19 +41,13 @@ $(function(){
         
     <dd>
     <div class="title">
-    <span><img src="<%=ctxPath %>/static/images/leftico01.png" /></span>管理信息
+    <span><img src="<%=ctxPath %>/static/images/leftico01.png" /></span>系统信息
     </div>
     	<ul class="menuson">
-        <li><cite></cite><a href="index.html" target="rightFrame">用户管理</a><i></i></li>
         <li class="active"><cite></cite><a href="server/status.jsp" target="rightFrame">服务器状态信息</a><i></i></li>
-        <li><cite></cite><a href="imgtable.html" target="rightFrame">图片数据表</a><i></i></li>
+        <li><cite></cite><a href="index.html" target="rightFrame">用户管理</a><i></i></li>
+        <li><cite></cite><a href="dic/list.jsp" target="rightFrame">数据字典管理</a><i></i></li>
         <li><cite></cite><a href="form.html" target="rightFrame">添加编辑</a><i></i></li>
-        <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
-        <li><cite></cite><a href="imglist1.html" target="rightFrame">自定义</a><i></i></li>
-        <li><cite></cite><a href="tools.html" target="rightFrame">常用工具</a><i></i></li>
-        <li><cite></cite><a href="filelist.html" target="rightFrame">信息管理</a><i></i></li>
-        <li><cite></cite><a href="tab.html" target="rightFrame">Tab页</a><i></i></li>
-        <li><cite></cite><a href="error.html" target="rightFrame">404页面</a><i></i></li>
         </ul>    
     </dd>
         

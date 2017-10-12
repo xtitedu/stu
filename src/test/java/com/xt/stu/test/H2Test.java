@@ -11,7 +11,7 @@ public class H2Test {
 	//数据库连接URL，通过使用TCP/IP的服务器模式（远程连接），当前连接的是E:/H2目录下的gacl数据库
     //private static final String JDBC_URL = "jdbc:h2:tcp://localhost/E:/H2/gacl";
     //private static final String JDBC_URL = "jdbc:h2:tcp://127.0.0.1/E:/H2/gacl";
-    private static final String JDBC_URL = "jdbc:h2:tcp://localhost:8000/stu";
+    private static final String JDBC_URL = "jdbc:h2:tcp://localhost:8036/stu";
     //连接数据库时使用的用户名
     private static final String USER = "sa";
     //连接数据库时使用的密码

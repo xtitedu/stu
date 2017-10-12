@@ -18,13 +18,9 @@
  <%
  request.setCharacterEncoding("UTF-8");
  
- //String stuNo = request.getParameter("stuNo");
- 
  Enumeration<String> enums = request.getParameterNames();
  
- 
  StuInfo stu = new StuInfo();
- System.out.println("------------------------->" + stu);
  
  Convert.ConvertDate();
  while(enums.hasMoreElements()){

@@ -1,24 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="org.apache.commons.lang.StringUtils" %>
-<%@ page import="com.xt.stu.stuinfo.StuInfo" %>
-<%@ page import="com.xt.stu.stuinfo.StuService" %>
+<%@ page import="com.xt.stu.sys.Dic" %>
+<%@ page import="com.xt.stu.sys.DicService" %>
 <%
-
-	String pageNo = request.getParameter("pageNo");
-	String nowPageStr = request.getParameter("nowPage");
-	long start = 0;
-	int pageNum = 10;
-	if(StringUtils.isNotBlank(pageNo)){
-		start = Integer.parseInt(pageNo)*pageNum;
-	}
-
 	String ctxPath = request.getContextPath();
-	StuService stuInfo = new StuService();
-	long dataCount = stuInfo.getStuINfoByAttrsCount(null);
-	int pageCount = (int)dataCount/pageNum + 1;
-	List<StuInfo> stuList = stuInfo.getStuInfoByAttrs(null, start, pageNum);
+	DicService ds = new DicService();
+	List<Dic> dList = ds.getDicByAttr(null);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -83,27 +71,23 @@ function test(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>学号<i class="sort"><img src="<%=ctxPath %>/static/images/px.gif" /></i></th>
-        <th>姓名</th>
-        <th>班级</th>
-        <th>学校</th>
-        <th>联系电话</th>
-        <th>Email</th>
+        <th>字典类别<i class="sort"><img src="<%=ctxPath %>/static/images/px.gif" /></i></th>
+        <th>数据名称</th>
+        <th>数据代码</th>
+        <th>备注</th>
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <%
-			for(StuInfo stu : stuList){
+			for(Dic d : dList){
 		%>
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td><%=stu.getStuNo() %></td>
-        <td><%=stu.getStuName() %></td>
-        <td><%=stu.getClassId() %></td>
-        <td><%=stu.getUniversity() %></td>
-        <td><%=stu.getTelNum() %></td>
-        <td><%=stu.getEmail() %></td>
+        <td><%=d.getDicType() %></td>
+        <td><%=d.getDataName() %></td>
+        <td><%=d.getDataCode() %></td>
+        <td><%=d.getMemo() %></td>
         <td><a href="#" class="tablelink">查看</a><a href="#" class="tablelink"> 修改</a><a href="#" class="tablelink"> 删除</a></td>
         </tr> 
         <%
@@ -114,7 +98,7 @@ function test(){
     
    
     <div class="pagin">
-    	<div class="message">共<i class="blue"><%=dataCount %></i>条记录，当前显示第&nbsp;<i class="blue"><%=nowPageStr %>&nbsp;</i>页</div>
+    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
         <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
         <li class="paginItem"><a href="javascript:;">1</a></li>

@@ -4,7 +4,6 @@
 <%@ page import="java.util.Date" %>
 <%
 	String ctxPath = request.getContextPath();
-	
 	String stuNo = DateUtil.formatDateByFormat(new Date(), "yyyyMMdd") + (int)(Math.random()*10);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,9 +29,7 @@ function submitData(){
     <li><a href="#">添加学生信息</a></li>
     </ul>
     </div>
-    
     <div class="formbody">
-    
     <div class="formtitle"><span>基本信息</span></div>
     <form action="doAdd.jsp" method="post" onsubmit="submitData();">
     <table class="tableForm">
