@@ -58,8 +58,7 @@ $(function(){
     </div>
     <ul class="menuson">
         <li><cite></cite><a href="stu/list.jsp" target="rightFrame">学生管理</a><i></i></li>
-        <li><cite></cite><a href="#">班级管理</a><i></i></li>
-        <li><cite></cite><a href="#">档案列表显示</a><i></i></li>
+        <li><cite></cite><a href="class/list.jsp">班级管理</a><i></i></li>
         </ul>     
     </dd> 
     
